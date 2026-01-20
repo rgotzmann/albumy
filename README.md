@@ -10,6 +10,9 @@ Demo: http://albumy.helloflask.com
 
 ## Installation
 
+Note: This version of Albumy requires Python 3.9 due to compatibility with older dependencies. 
+Python 3.10+ will not work without an update package rabbit hole. 
+
 clone:
 ```
 $ git clone https://github.com/greyli/albumy.git
@@ -19,8 +22,9 @@ create & activate virtual env then install dependency:
 
 with venv/virtualenv + pip:
 ```
-$ python -m venv env  # use `virtualenv env` for Python2, use `python3 ...` for Python3 on Linux & macOS
+$ python3.9 -m venv env 
 $ source env/bin/activate  # use `env\Scripts\activate` on Windows
+$ pip install Pillow>=10.0.0 # upgrade Pillow and update requirements.txt
 $ pip install -r requirements.txt
 ```
 or with Pipenv:
@@ -28,8 +32,9 @@ or with Pipenv:
 $ pipenv install --dev
 $ pipenv shell
 ```
-generate fake data then run:
+Initialize database, generate fake data then run:
 ```
+$ flask initdb
 $ flask forge
 $ flask run
 * Running on http://127.0.0.1:5000/
