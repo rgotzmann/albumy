@@ -82,18 +82,18 @@ Note: The first image upload will download ML models (~1GB) - this only happens 
 Technical Details
 ML Implementation
 
-Model Storage: ~/.cache/huggingface/hub/ (automatic caching)
-Alt Text Field: Photo.alt_text (VARCHAR 500)
-Search Keywords: Photo.img_search (TEXT, comma-separated objects)
-Search Engine: Whooshee indexes both alt_text and img_search fields
-Processing Time: ~2-5 seconds per image (first time slower due to model loading)
+  Model Storage: ~/.cache/huggingface/hub/ (automatic caching)
+  Alt Text Field: Photo.alt_text (VARCHAR 500)
+  Search Keywords: Photo.img_search (TEXT, comma-separated objects)
+  Search Engine: Whooshee indexes both alt_text and img_search fields
+  Processing Time: ~2-5 seconds per image (first time slower due to model loading)
 
 Files Modified for ML Features
 
-albumy/models.py - Added alt_text and img_search fields to Photo model
-albumy/ml.py - ML script for image analysis
-albumy/blueprints/main.py - Integration in upload route
-albumy/utils.py - Updated PIL.Image.ANTIALIAS → LANCZOS for Pillow 10+ compatibility
+  albumy/models.py - Added alt_text and img_search fields to Photo model
+  albumy/ml.py - ML script for image analysis
+  albumy/blueprints/main.py - Integration in upload route
+  albumy/utils.py - Updated PIL.Image.ANTIALIAS → LANCZOS for Pillow 10+ compatibility
 
 ## License
 
