@@ -1,7 +1,7 @@
 # Albumy
 
 
-ML-Powered Features  
+## ML-Powered Features  
 This fork includes two machine learning features using open-source models from HuggingFace:  
 1. Auto-Generated Alt Text
 
@@ -15,12 +15,12 @@ Detects objects in images using CLIP (OpenAI) for zero-shot classification
 Enables searching photos by content without manual tagging  
 Search for: "dog", "person", "food", "nature", "building", etc.  
 
-Pretrained Models Used:  
+## Pretrained Models Used:  
 
 BLIP for image captioning  
 CLIP for object detection  
 
-No API keys required - models run locally on your machine.  
+No API keys required - models run locally.  
 
 ## Installation  
 
@@ -60,16 +60,16 @@ Test account:
 * email: `admin@helloflask.com`
 * password: `helloflask`
 
-Using the ML Features  
+## Using the ML Features  
 
-Auto-Generated Alt Text  
+### Auto-Generated Alt Text  
 When uploading an image:  
 
 Blip automatically generates a descriptive caption  
 If you don't provide a description, the alt text becomes the description  
 Alt text is always generated for accessibility (and is visible in HTML <alt> attribute)  
 
-Keyword-Based Search  
+### Keyword-Based Search  
 To search for images by content:  
 
 Use the search box in the navigation bar  
@@ -79,7 +79,7 @@ Results include all photos containing the detected objects, even if not manually
 
 Note: The first image upload will download ML models (~1GB) - this only happens once.  
 
-Technical Details  
+## Technical Details  
 ML Implementation  
 
   Model Storage: ~/.cache/huggingface/hub/ (automatic caching)  
