@@ -18,6 +18,7 @@ from albumy.forms.main import DescriptionForm, TagForm, CommentForm
 from albumy.models import User, Photo, Tag, Follow, Collect, Comment, Notification
 from albumy.notifications import push_comment_notification, push_collect_notification
 from albumy.utils import rename_image, resize_image, redirect_back, flash_errors
+from albumy.ml import analyze_image
 
 main_bp = Blueprint('main', __name__)
 
@@ -131,6 +132,10 @@ def upload():
             filename_m=filename_m,
             author=current_user._get_current_object()
         )
+        image_path = os.path.join(current_app.config['ALBUMY_UPLOAD_PATH'], filename)
+        photo.alt_text, photo.detected_objects = analyze_image(image_path)
+        if not photo.description:
+            photo.description = photo.alt_text
         db.session.add(photo)
         db.session.commit()
     return render_template('main/upload.html')
