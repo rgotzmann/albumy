@@ -1,5 +1,6 @@
 # Albumy
 
+![Alt text](albumy_homepage.png)
 
 ## ML-Powered Features  
 This fork includes two machine learning features using open-source models from HuggingFace:  
